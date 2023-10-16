@@ -22,18 +22,73 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
-                    Greeting("Android")
+                    var Toto = jeMappelleToto()
+                    //Greeting(Toto)
+                    val number = 6
+                    var Table = tableDeMultiplication(number)
+                    //Greeting(Table)
+                    var Calcul = calculatriceBasique(4, "*", 6)
+                    //Greeting(Calcul)
+                    var Farenheit = celsiusVersFahrenheit(12.3)
+                    //Greeting(Farenheit.toString())
+                    var Fruits = listeDeFruits()
+                    Greeting(Fruits)
                 }
             }
         }
     }
 }
 
+fun jeMappelleToto(): String{
+    var MaPetitePhrase = "Je m'appelle toto et j'ai 27ans."
+    println(MaPetitePhrase)
+    return MaPetitePhrase
+}
+
+fun tableDeMultiplication(number : Int): String{
+    val numbers = intArrayOf(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12)
+    var tableofmultiplication = ""
+    for(n in numbers){
+        var result = number.toInt() * n.toInt()
+        tableofmultiplication += "" + number + " x " + n + " = " + result + " "
+    }
+    println(tableofmultiplication)
+    return tableofmultiplication
+}
+
+fun calculatriceBasique(number1 : Int, operation : String, number2 : Int): String{
+    var result = 0
+    if("*" == operation){
+        result = number1 * number2
+    }else if("+" == operation){
+        result = number1 + number2
+    }else if("-" == operation){
+        result = number1 - number2
+    }else if("/" == operation){
+        result = number1 / number2
+    }
+    println(""+number1 + " "+operation+" " + number2 + " = " + result)
+    return ""+number1 + " "+operation+" " + number2 + " = " + result
+}
+
+fun celsiusVersFahrenheit(celsius: Double): Double {
+    return (celsius * 9/5) + 32
+}
+
+fun listeDeFruits(): String{
+    val fruits = listOf("Banane", "Pomme", "Cerise", "Poire")
+    var listedefruits = ""
+    for(f in fruits){
+        listedefruits += f+ " "
+        println(f)
+    }
+    return listedefruits
+}
+
 @Composable
-fun Greeting(name: String, modifier: Modifier = Modifier) {
+fun Greeting(text: String) {
     Text(
-        text = "Hello $name!",
-        modifier = modifier
+        text = "$text",
     )
 }
 
