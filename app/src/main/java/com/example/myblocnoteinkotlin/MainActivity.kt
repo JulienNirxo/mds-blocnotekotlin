@@ -3,7 +3,10 @@ package com.example.myblocnoteinkotlin
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
@@ -18,21 +21,19 @@ class MainActivity : ComponentActivity() {
         setContent {
             MyBlocNoteInKotlinTheme {
                 // A surface container using the 'background' color from the theme
-                Surface(
+                Column(
                     modifier = Modifier.fillMaxSize(),
-                    color = MaterialTheme.colorScheme.background
                 ) {
-                    var Toto = jeMappelleToto()
-                    //Greeting(Toto)
-                    val number = 6
-                    var Table = tableDeMultiplication(number)
-                    //Greeting(Table)
-                    var Calcul = calculatriceBasique(4, "*", 6)
-                    //Greeting(Calcul)
-                    var Farenheit = celsiusVersFahrenheit(12.3)
-                    //Greeting(Farenheit.toString())
-                    var Fruits = listeDeFruits()
-                    Greeting(Fruits)
+                    Text("Exo 1 :")
+                    Text(jeMappelleToto())
+                    Text("Exo 2 :")
+                    Text(tableDeMultiplication(6))
+                    Text("Exo 3 :")
+                    Text(calculatriceBasique(4, "*", 6))
+                    Text("Exo 4")
+                    Text(celsiusVersFahrenheit(12.3).toString())
+                    Text("Exo 5")
+                    Text(listeDeFruits())
                 }
             }
         }
@@ -83,19 +84,4 @@ fun listeDeFruits(): String{
         println(f)
     }
     return listedefruits
-}
-
-@Composable
-fun Greeting(text: String) {
-    Text(
-        text = "$text",
-    )
-}
-
-@Preview(showBackground = true)
-@Composable
-fun GreetingPreview() {
-    MyBlocNoteInKotlinTheme {
-        Greeting("Android")
-    }
 }
