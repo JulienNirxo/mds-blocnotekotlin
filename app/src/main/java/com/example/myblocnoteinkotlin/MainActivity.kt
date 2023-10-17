@@ -29,7 +29,7 @@ class MainActivity : ComponentActivity() {
         }
 
         //si on ajoute une note, on ajoute à la liste
-        if(titre.toString() != "" || titre.toString() != null){
+        if (!titre.isNullOrBlank() && !note.isNullOrBlank()) {
             listTitre.add(titre.toString())
             listNote.add(note.toString())
         }
@@ -52,7 +52,7 @@ class MainActivity : ComponentActivity() {
         }
 
 
-        // Gestionnaire de clic sur les éléments de la liste
+        //clique pour la modification d'une note
         simpleList.setOnItemClickListener { _, _, position, _ ->
             val selectedIemTitre = listTitre[position]
             val selectedIemNote = listNote[position]
@@ -68,7 +68,13 @@ class MainActivity : ComponentActivity() {
             startActivity(intent)
         }
 
-
+        //suppression d'un élément lors d'un long click
+        simpleList.setOnItemLongClickListener { parent, view, position, id ->
+            listTitre.removeAt(position)
+            listNote.removeAt(position)
+            arrayAdapter.notifyDataSetChanged()
+            true
+        }
     }
 }
 

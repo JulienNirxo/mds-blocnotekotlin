@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 
 class edit_note : AppCompatActivity() {
@@ -32,12 +33,16 @@ class edit_note : AppCompatActivity() {
             val editedTitre: String = EditTextTitre.text.toString()
             val editedNote: String = EditTextNote.text.toString()
 
-            val intentAccueil = Intent(this, MainActivity::class.java)
-            intentAccueil.putExtra("titre", editedTitre)
-            intentAccueil.putExtra("note", editedNote)
-            intentAccueil.putStringArrayListExtra("listTitre", listTitre)
-            intentAccueil.putStringArrayListExtra("listNote", listNote)
-            startActivity(intentAccueil)
+            if (editedTitre.isEmpty() || editedNote.isEmpty()) {
+                Toast.makeText(this, "Les champs ne doivent pas être vides", Toast.LENGTH_SHORT).show()
+            } else {
+                val intentAccueil = Intent(this, MainActivity::class.java)
+                intentAccueil.putExtra("titre", editedTitre)
+                intentAccueil.putExtra("note", editedNote)
+                intentAccueil.putStringArrayListExtra("listTitre", listTitre)
+                intentAccueil.putStringArrayListExtra("listNote", listNote)
+                startActivity(intentAccueil)
+            }
         }
     }
 }

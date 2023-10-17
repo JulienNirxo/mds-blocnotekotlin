@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 
 class add_note : AppCompatActivity() {
@@ -21,16 +22,21 @@ class add_note : AppCompatActivity() {
             val editTextValueTitre: String = EditTextTitre.getText().toString()
             val editTextValueNote: String = EditTextNote.getText().toString()
 
-            val intentAccueil = getIntent()
-            val listTitre = intentAccueil.getStringArrayListExtra("listTitre")
-            val listNote = intentAccueil.getStringArrayListExtra("listNote")
+            if (editTextValueTitre.isEmpty() || editTextValueNote.isEmpty()) {
+                // Afficher un Toast pour indiquer que les champs sont vides
+                Toast.makeText(this, "Les champs ne doivent pas être vides", Toast.LENGTH_SHORT).show()
+            } else {
+                val intentAccueil = getIntent()
+                val listTitre = intentAccueil.getStringArrayListExtra("listTitre")
+                val listNote = intentAccueil.getStringArrayListExtra("listNote")
 
-            val intent = Intent(applicationContext, MainActivity::class.java);
-            intent.putExtra("titre", editTextValueTitre)
-            intent.putExtra("note", editTextValueNote)
-            intent.putStringArrayListExtra("listTitre", listTitre)
-            intent.putStringArrayListExtra("listNote", listNote)
-            startActivity(intent);
+                val intent = Intent(applicationContext, MainActivity::class.java);
+                intent.putExtra("titre", editTextValueTitre)
+                intent.putExtra("note", editTextValueNote)
+                intent.putStringArrayListExtra("listTitre", listTitre)
+                intent.putStringArrayListExtra("listNote", listNote)
+                startActivity(intent);
+            }
         }
     }
 }
