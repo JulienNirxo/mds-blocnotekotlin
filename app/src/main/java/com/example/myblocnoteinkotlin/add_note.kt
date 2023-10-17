@@ -14,8 +14,17 @@ class add_note : AppCompatActivity() {
 
         //initialisation des composants
         val btnAddNote = findViewById<Button>(R.id.btnAdd)
+        val btnReturn = findViewById<Button>(R.id.btnReturn)
         val EditTextTitre = findViewById<EditText>(R.id.EditTextTitre)
         val EditTextNote = findViewById<EditText>(R.id.EditTextNote)
+
+        //initialisation du intent avec les listes
+        val intentAccueil = getIntent()
+        val listTitre = intentAccueil.getStringArrayListExtra("listTitre")
+        val listNote = intentAccueil.getStringArrayListExtra("listNote")
+        val intent = Intent(applicationContext, MainActivity::class.java);
+        intent.putStringArrayListExtra("listTitre", listTitre)
+        intent.putStringArrayListExtra("listNote", listNote)
 
         //ajout d'une note
         btnAddNote.setOnClickListener {
@@ -26,17 +35,14 @@ class add_note : AppCompatActivity() {
                 // Afficher un Toast pour indiquer que les champs sont vides
                 Toast.makeText(this, "Les champs ne doivent pas être vides", Toast.LENGTH_SHORT).show()
             } else {
-                val intentAccueil = getIntent()
-                val listTitre = intentAccueil.getStringArrayListExtra("listTitre")
-                val listNote = intentAccueil.getStringArrayListExtra("listNote")
-
-                val intent = Intent(applicationContext, MainActivity::class.java);
                 intent.putExtra("titre", editTextValueTitre)
                 intent.putExtra("note", editTextValueNote)
-                intent.putStringArrayListExtra("listTitre", listTitre)
-                intent.putStringArrayListExtra("listNote", listNote)
                 startActivity(intent);
             }
+        }
+
+        btnReturn.setOnClickListener {
+            startActivity(intent);
         }
     }
 }

@@ -14,6 +14,7 @@ class edit_note : AppCompatActivity() {
 
         // Initialisation des composants
         val btnEditNote = findViewById<Button>(R.id.btnEdit)
+        val btnReturn2 = findViewById<Button>(R.id.btnReturn2)
         val EditTextTitre = findViewById<EditText>(R.id.EditTextTitre)
         val EditTextNote = findViewById<EditText>(R.id.EditTextNote)
 
@@ -23,6 +24,11 @@ class edit_note : AppCompatActivity() {
         val note = intent.getStringExtra("note")
         val listTitre = intent.getStringArrayListExtra("listTitre")
         val listNote = intent.getStringArrayListExtra("listNote")
+
+        //initialisation intent
+        val intentAccueil = Intent(this, MainActivity::class.java)
+        intentAccueil.putStringArrayListExtra("listTitre", listTitre)
+        intentAccueil.putStringArrayListExtra("listNote", listNote)
 
         //Modif des editText
         EditTextTitre.setText(titre)
@@ -36,13 +42,16 @@ class edit_note : AppCompatActivity() {
             if (editedTitre.isEmpty() || editedNote.isEmpty()) {
                 Toast.makeText(this, "Les champs ne doivent pas être vides", Toast.LENGTH_SHORT).show()
             } else {
-                val intentAccueil = Intent(this, MainActivity::class.java)
                 intentAccueil.putExtra("titre", editedTitre)
                 intentAccueil.putExtra("note", editedNote)
-                intentAccueil.putStringArrayListExtra("listTitre", listTitre)
-                intentAccueil.putStringArrayListExtra("listNote", listNote)
                 startActivity(intentAccueil)
             }
+        }
+
+        btnReturn2.setOnClickListener {
+            intentAccueil.putExtra("titre", titre)
+            intentAccueil.putExtra("note", note)
+            startActivity(intentAccueil)
         }
     }
 }
