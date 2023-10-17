@@ -6,13 +6,52 @@
     android:layout_height="match_parent"
     tools:context=".add_note">
 
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Ajout d'une note"
+        android:textSize="24sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/EditTextTitre"
+        android:layout_marginTop="16dp" />
+
+    <EditText
+        android:id="@+id/EditTextTitre"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="Titre"
+        app:layout_constraintTop_toBottomOf="@+id/textView3"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginTop="16dp" />
+
+    <EditText
+        android:id="@+id/EditTextNote"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:hint="Note"
+        app:layout_constraintTop_toBottomOf="@+id/EditTextTitre"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/btnEdit"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginTop="8dp" />
+
     <Button
         android:id="@+id/btnEdit"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Modifier"
-        app:layout_constraintBottom_toTopOf="@+id/textViewByJulien2"
-        app:layout_constraintEnd_toEndOf="parent" />
+        android:text="Modifier la note"
+        app:layout_constraintTop_toBottomOf="@+id/EditTextNote"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="16dp" />
 
     <TextView
         android:id="@+id/textViewByJulien2"
@@ -20,33 +59,10 @@
         android:layout_height="wrap_content"
         android:text="By Julien Millaud"
         android:textSize="14sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
-
-    <TextView
-        android:id="@+id/textView3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Modifier une note"
-        android:textSize="24sp"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnEdit"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-
-    <EditText
-        android:id="@+id/EditTextTitre"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Titre"
-        app:layout_constraintTop_toBottomOf="@+id/textView3"
-        tools:layout_editor_absoluteX="-16dp" />
-
-    <EditText
-        android:id="@+id/EditTextNote"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Note"
-        app:layout_constraintTop_toBottomOf="@+id/EditTextTitre" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginTop="16dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

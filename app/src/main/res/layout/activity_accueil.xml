@@ -11,6 +11,7 @@
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
         android:text="Bienvenue sur mon bloc note"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -24,7 +25,8 @@
         android:text="By Julien Millaud"
         android:textSize="14sp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -53,7 +55,8 @@
         android:id="@+id/BtnAddNote"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Ajout"
+        android:text="Ajouter une note"
         app:layout_constraintBottom_toTopOf="@+id/textViewByJulien"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

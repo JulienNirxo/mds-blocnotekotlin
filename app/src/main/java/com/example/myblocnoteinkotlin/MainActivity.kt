@@ -34,6 +34,10 @@ class MainActivity : ComponentActivity() {
             listNote.add(note.toString())
         }
 
+        //inverser la liste (mettrer les dernières notes ajouter/modifier en haut de la liste)
+        listTitre.reverse()
+        listNote.reverse()
+
         //initialisation de ma liste
         var simpleList = findViewById<View>(R.id.simpleListView) as ListView
         val arrayAdapter: ArrayAdapter<String> = ArrayAdapter<String>(this, R.layout.item_list, R.id.textView, listTitre)
