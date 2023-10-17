@@ -22,12 +22,14 @@ class add_note : AppCompatActivity() {
             val editTextValueNote: String = EditTextNote.getText().toString()
 
             val intentAccueil = getIntent()
-            val list = intent.getStringArrayListExtra("list")
+            val listTitre = intentAccueil.getStringArrayListExtra("listTitre")
+            val listNote = intentAccueil.getStringArrayListExtra("listNote")
 
             val intent = Intent(applicationContext, MainActivity::class.java);
             intent.putExtra("titre", editTextValueTitre)
             intent.putExtra("note", editTextValueNote)
-            intent.putStringArrayListExtra("list", list)
+            intent.putStringArrayListExtra("listTitre", listTitre)
+            intent.putStringArrayListExtra("listNote", listNote)
             startActivity(intent);
         }
     }
