@@ -48,6 +48,7 @@ class edit_note : AppCompatActivity() {
             }
         }
 
+        //bouton de retour
         btnReturn2.setOnClickListener {
             intentAccueil.putExtra("titre", titre)
             intentAccueil.putExtra("note", note)

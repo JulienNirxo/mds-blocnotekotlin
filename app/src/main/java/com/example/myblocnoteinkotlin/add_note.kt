@@ -41,6 +41,7 @@ class add_note : AppCompatActivity() {
             }
         }
 
+        //bouton de retour
         btnReturn.setOnClickListener {
             startActivity(intent);
         }
